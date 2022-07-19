@@ -22,8 +22,10 @@ loginBtn.onclick = function () {
         })
         .then(function (json) {
             sessionStorage.setItem("user", JSON.stringify(json));
-            // window.location.href = "./home/home.html";
-            confirm(sessionStorage.user);
+            window.location.href = "./home/home.html";
+        })
+        .catch(function (ex) {
+            alert(`Sai tai khoan hoac mat khau`);
         })
 }
 

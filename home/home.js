@@ -1,3 +1,3 @@
 var user = document.getElementById("user");
-var u = sessionStorage.user;
-user.innerHTML = `${u.username}`;
+var u = JSON.parse(sessionStorage.user);
+user.innerHTML = `<h3>logged as: ${u.username}</h3>`;
