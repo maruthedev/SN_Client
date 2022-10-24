@@ -1,8 +1,9 @@
 var API = "http://localhost:0505/user/signIn";
 
-var un = document.getElementById("username");
-var pw = document.getElementById("password");
-var loginBtn = document.getElementById("login");
+const un = document.getElementById("username");
+const pw = document.getElementById("password");
+const loginBtn = document.getElementById("login");
+const signUpBtn = document.getElementById('signUp');
 
 loginBtn.onclick = function () {
     sessionStorage.clear();
@@ -29,3 +30,6 @@ loginBtn.onclick = function () {
         })
 }
 
+signUpBtn.onclick = function (){
+    window.location.href = './signUp/signUp.html';
+}
