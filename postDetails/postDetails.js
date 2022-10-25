@@ -1,1 +1,1 @@
-document.writeln(sessionStorage.getItem("post"));
+document.writeln(`POST: ${JSON.parse(sessionStorage.getItem("post")).title}`);

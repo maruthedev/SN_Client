@@ -7,6 +7,7 @@ const searchBtn = document.getElementById('searchBtn');
 const addBtn = document.getElementById('addBtn');
 const searchAPI = 'http://localhost:0505/post/find';
 var table = document.getElementById('table');
+var post = null;
 
 searchBtn.onclick = function () {
     fetch(searchAPI + `?param=${inpField.value}`,{
@@ -32,6 +33,7 @@ function updateTable(json){
     </thead>
     `;
     json.forEach(item => {
+        post = JSON.stringify(item);
         table.innerHTML += 
         `<tr>
             <input id="postId${item.id}" type ="hidden"/>
@@ -39,7 +41,7 @@ function updateTable(json){
             <td>${item.user.username}</td>
             <td>${item.date}</td>
             <td id="edit">
-                <button onclick = "postDetails(${item})">Xem</button>
+                <button onclick = "postDetails(post)">Xem</button>
             </td>
         </tr>`
         ;
@@ -47,8 +49,8 @@ function updateTable(json){
 }
 
 function postDetails(post){
+    if(post === null) return;
     sessionStorage.removeItem("post");
     sessionStorage.setItem("post",post);
-    confirm(post);
     window.location.href = '../postDetails/postDetails.html';
 }
