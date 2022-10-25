@@ -3,7 +3,7 @@ var API = "http://localhost:0505/user/signIn";
 const un = document.getElementById("username");
 const pw = document.getElementById("password");
 const loginBtn = document.getElementById("loginBtn");
-const signUpBtn = document.getElementById('signUp');
+const signUpBtn = document.getElementById('signUpBtn');
 
 loginBtn.onclick = function () {
     sessionStorage.clear();
@@ -23,7 +23,7 @@ loginBtn.onclick = function () {
         })
         .then(function (json) {
             sessionStorage.setItem("user", JSON.stringify(json));
-            window.location.href = "../home/home.html";
+            window.location.href = "./home/home.html";
         })
         .catch(function (ex) {
             alert(`Sai tai khoan hoac mat khau`);
@@ -31,5 +31,5 @@ loginBtn.onclick = function () {
 }
 
 signUpBtn.onclick = function (){
-    window.location.href = '../signUp/signUp.html';
+    window.location.href = './signUp/signUp.html';
 }
