@@ -1,6 +1,6 @@
 const user = document.getElementById("user");
 const u = JSON.parse(sessionStorage.user);
-user.innerHTML = `<h3>logged as: ${u.username}</h3>`;
+user.innerHTML = `<h3>logged as: ${u.username} <button id="userProfileBtn">Thong tin ca nhan</button></h3>`;
 
 const inpField = document.getElementById('inputField');
 const searchBtn = document.getElementById('searchBtn');
@@ -8,6 +8,7 @@ const addBtn = document.getElementById('addBtn');
 const searchAPI = 'http://localhost:0505/post/find';
 var table = document.getElementById('table');
 var post = null;
+const userProfileBtn = document.getElementById('userProfileBtn');
 
 searchBtn.onclick = function () {
     fetch(searchAPI + `?param=${inpField.value}`,{
@@ -53,4 +54,8 @@ function postDetails(post){
     sessionStorage.removeItem("post");
     sessionStorage.setItem("post",post);
     window.location.href = '../postDetails/postDetails.html';
+}
+
+userProfileBtn.onclick = function(){
+    window.location.href = '../userProfile/userProfile.html';
 }
